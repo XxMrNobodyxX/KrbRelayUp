@@ -35,10 +35,10 @@ jobs:
         path: KrbRelayUp\bin\Release\*.exe
         retention-days: 90
 
-    - name: Upload to GitHub Release (permanent)
+    - name: Upload to GitHub Release
       if: github.event_name == 'release'
       uses: softprops/action-gh-release@v1
       with:
-        files: KrbRelayUp\bin\Release\*.exe
+        files: '**/bin/Release/*.exe'
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
